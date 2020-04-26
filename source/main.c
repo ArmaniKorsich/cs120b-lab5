@@ -19,21 +19,21 @@ void TickFct() {
 	switch(state) {
 		case SM_Start:
 			state = SM_Start;
-			if ((PINA & 0x03) == 0x01) {
+			if ((PINA & 0x01) == 0x00) {
 				state = inc;
-			} else if ((PINA & 0x03) == 0x02) {
+			} else if ((PINA & 0x02) == 0x00) {
 				state = dec;
 			}
 			break;
 		case incpause:
-			if ((PINA & 0x01) == 0x01) {
+			if ((PINA & 0x01) == 0x00) {
 				state = incpause;
 			} else {
 				state = SM_Start;
 			}
 			break;
 		case decpause:
-			if ((PINA & 0x03) == 0x02) {
+			if ((PINA & 0x03) == 0x00) {
 				state = decpause;
 			} else { //when they let it go
 				state = SM_Start;
@@ -53,7 +53,7 @@ void TickFct() {
 
 	switch(state) {
 		case SM_Start:
-			if ((PINA & 0x03) == 0x03) {
+			if ((PINA & 0x03) == 0x00) {
 				PORTC = 0x00;
 			}
 			break;
@@ -69,7 +69,7 @@ void TickFct() {
 	
 		case incpause:
 		case decpause:
-			if ((PINA & 0x03) == 0x03) {
+			if ((PINA & 0x03) == 0x00) {
 				PORTC = 0x00;
 			}
 			break;
