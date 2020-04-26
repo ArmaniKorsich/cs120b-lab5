@@ -86,7 +86,6 @@ int main(void) {
    DDRA = 0x00; PORTA = 0xFF;
    DDRC = 0xFF; PORTC = 0x00;
 
-   PORTC = 0x07;
     /* Insert your solution below */
     while (1) {
 	TickFct();
